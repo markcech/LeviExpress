@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { JourneyPicker } from "../JourneyPicker";
+import { JourneyDetail } from "../JourneyDetail";
 
 export const Home = () => {
   const [journey, setJourney] = useState(null);
@@ -12,7 +13,7 @@ export const Home = () => {
     <main>
       <JourneyPicker onJourneyChange={handleJourneyChange} />
 
-      {journey ? `Nazeleno spojení s id ${journey.results.journeyId} ` : " "}
+      {journey ? <JourneyDetail journey={journey.results.stops} /> : " "}
     </main>
   );
 };
