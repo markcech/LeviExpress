@@ -43,7 +43,6 @@ export const JourneyPicker = ({ onJourneyChange }) => {
       `https://apps.kodim.cz/daweb/leviexpress/api/journey?fromCity=${fromCity}&toCity=${toCity}&date=${date}`
     )
       .then((response) => response.json())
-      //.then((data) => console.log(data))
       .then((data) => onJourneyChange(data));
 
     console.log("Odesílám formulář s cestou");
