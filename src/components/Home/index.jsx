@@ -1,8 +1,9 @@
 import React, { useState } from "react";
 import { JourneyPicker } from "../JourneyPicker";
 import { JourneyDetail } from "../JourneyDetail";
-import { SelectedSeat } from "../SelectedSeat";
 import { useNavigate } from "react-router-dom";
+import "./style.css";
+import { SeatPicker } from "../SeatPicker";
 
 export const Home = () => {
   const [journey, setJourney] = useState(null);
@@ -10,7 +11,7 @@ export const Home = () => {
   const navigate = useNavigate();
 
   const handleBuy = () => {
-    console.log("funguju!");
+    
 
     fetch("https://apps.kodim.cz/daweb/leviexpress/api/reservation", {
       method: "POST",
@@ -34,7 +35,7 @@ export const Home = () => {
     setJourney(journey);
   };
 
-  console.log(journey);
+  console.log("data jsou :" ,journey);
 
   return (
     <main>
@@ -42,13 +43,23 @@ export const Home = () => {
 
       {journey ? <JourneyDetail journey={journey.results.stops} /> : " "}
 
-      {journey ? <SelectedSeat number={journey.results.autoSeat} /> : " "}
+      {journey ? (
+        <SeatPicker seats={journey.results.seats} journeyId={journey.results.journeyId} />
+      ) : (
+        " "
+      )}
 
       <div className="controls container">
-        <button className="btn btn--big" type="button" onClick={handleBuy}>
-          Rezervovat
-        </button>
+        {journey ? (
+          <button className="btn btn--big" type="button" onClick={handleBuy}>
+            Rezervovat
+          </button>
+        ) : (
+          " "
+        )}
       </div>
     </main>
   );
 };
+
+/*{journey ? <SelectedSeat number={journey.results.autoSeat} /> : " "}*/

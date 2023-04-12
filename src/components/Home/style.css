@@ -1,0 +1,27 @@
+.controls {
+    padding: 0 2rem;
+    text-align: center;
+  }
+
+  .btn--big {
+    font-size: 1.2rem;
+    border-radius: 2rem;
+    padding: 1rem 1.5rem;
+  }
+
+  .btn {
+    color: white;
+    background-color: #ed6a5a;
+    border-radius: 1rem;
+    padding: 0.5rem 1rem;
+    border: none;
+    outline: none;
+    box-shadow: 0 0 3px gray;
+    cursor: pointer;
+  }
+
+  .container {
+    width: 720px;
+    margin-right: auto;
+    margin-left: auto;
+  }
