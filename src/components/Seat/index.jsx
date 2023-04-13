@@ -1,9 +1,19 @@
 import React from "react";
 import "./style.css";
 
-export const Seat = ({ number, isOccupied }) => {
+export const Seat = ({ number, isOccupied, isSelected }) => {
+
+const setClassName = (
+  isOccupied ? "seat seat--occupied" : "seat",
+  isSelected? "seat seat--selected" : "seat"
+)
+
   return (
-    <svg className={isOccupied? "seat seat--occupied" : "seat"} viewBox="0 0 100 100" role="button">
+    <svg
+      className={setClassName}
+      viewBox="0 0 100 100"
+      role="button"
+    >
       <rect
         className="seat__rect"
         width="80"

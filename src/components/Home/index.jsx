@@ -11,8 +11,6 @@ export const Home = () => {
   const navigate = useNavigate();
 
   const handleBuy = () => {
-    
-
     fetch("https://apps.kodim.cz/daweb/leviexpress/api/reservation", {
       method: "POST",
       headers: {
@@ -35,7 +33,7 @@ export const Home = () => {
     setJourney(journey);
   };
 
-  console.log("data jsou :" ,journey);
+  console.log("data jsou :", journey);
 
   return (
     <main>
@@ -44,7 +42,11 @@ export const Home = () => {
       {journey ? <JourneyDetail journey={journey.results.stops} /> : " "}
 
       {journey ? (
-        <SeatPicker seats={journey.results.seats} journeyId={journey.results.journeyId} />
+        <SeatPicker
+          seats={journey.results.seats}
+          journeyId={journey.results.journeyId}
+          selectedSeat={journey.results.autoSeat}
+        />
       ) : (
         " "
       )}

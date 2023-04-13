@@ -104,7 +104,7 @@ export const JourneyPicker = ({ onJourneyChange }) => {
             <button
               className="btn"
               type="submit"
-              disabled={date === "" || fromCity === "" || toCity === ""}
+              disabled={!date || !fromCity || !toCity}
             >
               Vyhledat spoj
             </button>
