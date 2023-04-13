@@ -3,8 +3,6 @@ import "./style.css";
 import { BusStop } from "../BusStop";
 
 export const JourneyDetail = ({ journey }) => {
-  console.log("seznam cest", journey);
-
   return (
     <div className="journey-detail container">
       <h2>Podrobnosti cesty</h2>

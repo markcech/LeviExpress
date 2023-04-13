@@ -1,18 +1,19 @@
 import React from "react";
 import "./style.css";
 
-export const Seat = ({ number, isOccupied, isSelected }) => {
-
-const setClassName = (
-  isOccupied ? "seat seat--occupied" : "seat",
-  isSelected? "seat seat--selected" : "seat"
-)
+export const Seat = ({ number, isOccupied, isSelected, onSelect }) => {
+  const setClassName = isOccupied
+    ? "seat seat--occupied"
+    : isSelected
+    ? "seat seat--selected"
+    : "seat";
 
   return (
     <svg
       className={setClassName}
       viewBox="0 0 100 100"
       role="button"
+      onClick={onSelect}
     >
       <rect
         className="seat__rect"

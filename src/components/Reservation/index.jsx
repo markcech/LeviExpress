@@ -11,7 +11,7 @@ export const Reservation = () => {
       .then((response) => response.json())
       .then((data) => {
         setReservation(data.results);
-        console.log(data.results);
+        console.log("rezervace:", data.results);
       });
   }, []);
 
@@ -27,8 +27,12 @@ export const Reservation = () => {
         </div>
         <div className="reservation__info">
           <p>{reservation.date}</p>
-          <p>{reservation.fromCity.name}, {reservation.fromCity.time}</p>
-          <p>{reservation.toCity.name}, {reservation.toCity.time}</p>
+          <p>
+            {reservation.fromCity.name}, {reservation.fromCity.time}
+          </p>
+          <p>
+            {reservation.toCity.name}, {reservation.toCity.time}
+          </p>
           <p>{reservation.seatNumber}</p>
         </div>
       </div>
